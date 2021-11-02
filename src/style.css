@@ -1,3 +1,50 @@
 body {
   background-color: bisque;
+  text-align: center;
+}
+
+.container {
+  margin: 0 15%;
+}
+
+li {
+  list-style: none;
+}
+
+#input {
+  width: 98%;
+  padding: 10px 2px;
+  font-size: large;
+}
+
+#todos,
+form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgb(102, 100, 100);
+  margin: 0 auto;
+}
+
+.heading {
+  display: inline;
+}
+
+.items {
+  padding: 0;
+}
+
+.item {
+  width: auto;
+  flex-grow: 2;
+  text-align: left;
+  padding: 0 4px;
+}
+
+.fas {
+  padding-right: 10px;
+}
+
+#form {
+  padding: 5px 0;
 }

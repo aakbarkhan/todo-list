@@ -15,7 +15,7 @@
   \**********************/
 /***/ (() => {
 
-eval("\n\n//# sourceURL=webpack://webpack-demo/./src/index.js?");
+eval("\n\nlet todoLists = [\n    {description: '30 mins walk in the afternoon',\n    completed: false,\n    index: 0\n },\n {description: 'Play with the do do list ',\n completed: false,\n index: 1\n},\n{description: 'Check all the items in the todo list',\ncompleted: false,\nindex: 2\n},\n{description: 'use pomodor clock regylarly and update it in advanced',\ncompleted: false,\nindex: 3\n}\n];\n\nconst todos = document.querySelector('.list-items');\n\nfunction display() {\n    todos.innerHTML = \" \";\n    let todoList = todoLists;\n    todoList.forEach((item) => {\n        console.log(item)\n        todos.innerHTML += `\n        <form id=\"form\" action=\"#\">\n            <input type=\"checkbox\" >\n            <ul class=\"items\">\n                <li class=\"item\">${item.description} </li>\n            </ul>\n        </form>\n        `\n    })\n    \n}\n\ndisplay();\n\n//# sourceURL=webpack://webpack-demo/./src/index.js?");
 
 /***/ })
 

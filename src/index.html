@@ -4,9 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    
     <title>Todo's List</title>
 </head>
 <body>
-    <h1>Hello webpack!</h1>
+    <div class="container">
+        <div id="todos">
+            <p class="heading">Today's To do</p>
+            <span><i class="fas fa-sync"></i></span>
+        </div>
+        <div >
+            <form action="#">
+                <input id="input" type="text" placeholder="Add to your list">
+                <button type="reset">&#8629;</button>
+            </form>
+            <div class="list-items">
+
+            </div>
+            <!-- <form action="#">
+                <input type="checkbox" >
+                <ul class="items">
+                    <li class="item"> 30 mins walk in the afternoon</li>
+                </ul>
+            </form>
+           -->
+           <div>
+               <button>Clearn all completed</button>
+           </div>
+        </div>
+
+    </div>
 </body>
 </html>
