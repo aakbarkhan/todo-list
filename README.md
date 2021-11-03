@@ -4,7 +4,7 @@
 
 > This project is about Todo list.
 
-![screenshot](todolsit.png)
+![screenshot](todolist.png)
 
 
 
