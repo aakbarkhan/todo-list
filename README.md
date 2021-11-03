@@ -1,38 +1,30 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Portfolio: mobile version
+# TODO LIST: ToDo's List.
 
-> This project is Portfolio mobile version.
+> This project is about Todo list.
 
-![screenshot](./assets/mobile-portfolio.png)
+![screenshot](todolist.png)
 
-The toolbar contains logo and menu. The headline section is an introduction about the person.
-
-![](./assets/galaxys5.png)
-
-The above section is the contact form and the footer in the portfolio.
-This mobile version is tested on galaxy S5.
-
-![](./assets/desktop.png)
-
-![](./assets/email.png)
-
-The desktop version used media queries above 992px and below 992px in mobile. 
 
 
 
 ## Built With
 
 - Html&Css
-- Media queries
-- Linters
-- Animation and transition.
+- Linters.
+- Webpack.
 ## Live Demo
 
 The live page is:
 [Live Link](https://aakbarkhan.github.io/Portfolio/)
 
+## Getting Started
 
+- To get a local copy up and running follow these simple example steps.
+
+- follow using [webpack-dev-server](https://webpack.js.org/guides/development/#using-webpack-dev-server) guide and set it up on your local machine.
+- npm run build in your dir.
 ## Authors
 
 👤 **Aku**
@@ -53,8 +45,8 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- My coding partners
-- Standup teams
+- Microverse partners.
+- Standup teams.
 
 
 ## 📝 License
