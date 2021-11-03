@@ -14,27 +14,17 @@
             <p class="heading">Today's To do</p>
             <span><i class="fas fa-sync"></i></span>
         </div>
-        <div class="list-items">
-            <form action="#">
+        <div >
+            <form id="input-form" action="#">
                 <input id="input" type="text" placeholder="Add to your list">
-                <span>&#8629;</span>
-
+                <button id="enter-key" type="reset">&#8629;</button>
             </form>
-            <!-- <form action="#">
-                <input type="checkbox" >
-                <ul class="items">
-                    <li class="item"> 30 mins walk in the afternoon</li>
-                </ul>
-            </form>
-            <form action="#">
-                <input type="checkbox" >
-                <ul class="items">
-                    <li class="item"> 30 mins walk in the afternoon</li>
-                </ul>
-            </form> -->
-
+            <div class="list-items">
+            </div>
+           <div class="clear">
+               <button class="clear-completed" type="button" >Clear all completed</button>
+           </div>
         </div>
-
     </div>
 </body>
 </html>

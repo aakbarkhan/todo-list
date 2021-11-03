@@ -1,6 +1,8 @@
 import './style.css';
+import { check } from './script';
 
-const todoLists = [
+
+export const todoLists = [
   {
     description: '30 mins walk in the afternoon',
     completed: false,
@@ -30,7 +32,7 @@ function display() {
   todoList.forEach((item) => {
     todos.innerHTML += `
       <form id="form" action="#">
-        <input class="small-box" type="checkbox" >
+        <input id=${item.index} class="small-box" type="checkbox" >
             <li class="item">
             ${item.description} 
             </li>
@@ -39,4 +41,13 @@ function display() {
         `;
   });
 }
+
+
 window.addEventListener('load', display);
+window.addEventListener('load', check);
+// const checkBox = document.querySelectorAll('.small-box');
+// check();
+
+
+
+export default {todoLists};
