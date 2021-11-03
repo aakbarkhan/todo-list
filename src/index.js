@@ -24,7 +24,6 @@ const todoLists = [
 ];
 
 const todos = document.querySelector('.list-items');
-
 function display() {
   todos.innerHTML = '';
   const todoList = todoLists;
