@@ -19,7 +19,12 @@
 The live page is:
 [Live Link](https://aakbarkhan.github.io/Portfolio/)
 
+## Getting Started
 
+- To get a local copy up and running follow these simple example steps.
+
+- follow using [webpack-dev-server](https://webpack.js.org/guides/development/#using-webpack-dev-server) guide and set it up on your local machine.
+- npm run build in your dir.
 ## Authors
 
 👤 **Aku**
