@@ -31,7 +31,7 @@ function display() {
   todoList.forEach((item) => {
     todos.innerHTML += `
       <form id="form" action="#">
-        <input class="small-box" type="checkbox" >
+        <input class="small-box" type="checkbox" name="">
             <li class="item">
             ${item.description} 
             </li>
