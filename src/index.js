@@ -4,12 +4,12 @@ import { check } from './script';
 
 export const todoLists = [
   {
-    description: '30 mins walk in the afternoon',
+    description: 'Exercise regularly.',
     completed: false,
     index: 0,
   },
   {
-    description: 'Play with the do do list ',
+    description: 'Play with the Todo list.',
     completed: false,
     index: 1,
   },
@@ -19,35 +19,69 @@ export const todoLists = [
     index: 2,
   },
   {
-    description: 'use pomodor clock regylarly and update it in advanced sdfdfdfdfdf bbbb',
+    description: 'use pomodor clock regularly.',
     completed: false,
     index: 3,
   },
 ];
 
+
 const todos = document.querySelector('.list-items');
-function display() {
-  todos.innerHTML = '';
-  const todoList = todoLists;
-  todoList.forEach((item) => {
-    todos.innerHTML += `
-      <form id="form" action="#">
-        <input id=${item.index} class="small-box" type="checkbox" >
-            <li class="item">
-            ${item.description} 
-            </li>
-            <i class="fas fa-ellipsis-v"></i>
-        </form>
-        `;
-  });
+export function display() {
+  if ( localStorage.getItem('todoLists') != null ) {
+    window.addEventListener('load', check);
+    let todoList = JSON.parse(localStorage.getItem('todoLists'));
+    loadDisplay(checkBox);
+    todos.innerHTML = '';
+    todoList.forEach((item) => {
+      todos.innerHTML += `
+        <form id="form" action="#">
+          <input id=${item.index} class="small-box" type="checkbox">
+              <li class="item">
+              ${item.description} 
+              </li>
+              <i class="fas fa-ellipsis-v"></i>
+          </form>
+          `;
+    });
+  } else {
+    todos.innerHTML = '';
+    todoLists.forEach((item) => {
+      todos.innerHTML += `
+        <form id="form" action="#">
+          <input id=${item.index} class="small-box" type="checkbox" >
+          <label for=${item.index}>check</label>
+              <li class="item">
+              ${item.description} 
+              </li>
+              <i class="fas fa-ellipsis-v"></i>
+          </form>
+          `;
+    });
+    localStorage.setItem('todoLists', JSON.stringify(todoLists));
+  }
+}
+
+function loadDisplay(checkBox) {
+  // const checkboxx = document.querySelectorAll('input[type="checkbox"]');
+  checkBox.forEach((box)=> {
+    let todoList = JSON.parse(localStorage.getItem('todoLists'));
+    // console.log(todoList);
+    todoList.forEach((list)=> {
+      console.log(list)
+      if(list.completed == true){
+        box.checked = true;
+      } else {
+        box.checked = false;
+    
+      }
+  
+    })
+  })
+
 }
 
 
-window.addEventListener('load', display);
-window.addEventListener('load', check);
-// const checkBox = document.querySelectorAll('.small-box');
-// check();
+display();
 
-
-
-export default {todoLists};
+export default {todoLists };
