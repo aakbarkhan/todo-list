@@ -1,15 +1,14 @@
 import './style.css';
-import { check } from './script';
-
+import { check } from './script.js';
 
 export const todoLists = [
   {
-    description: '30 mins walk in the afternoon',
+    description: 'Exercise regularly.',
     completed: false,
     index: 0,
   },
   {
-    description: 'Play with the do do list ',
+    description: 'Play with the Todo list.',
     completed: false,
     index: 1,
   },
@@ -19,35 +18,67 @@ export const todoLists = [
     index: 2,
   },
   {
-    description: 'use pomodor clock regylarly and update it in advanced sdfdfdfdfdf bbbb',
+    description: 'use pomodor clock regularly.',
     completed: false,
     index: 3,
   },
 ];
-
 const todos = document.querySelector('.list-items');
-function display() {
-  todos.innerHTML = '';
-  const todoList = todoLists;
-  todoList.forEach((item) => {
-    todos.innerHTML += `
-      <form id="form" action="#">
-        <input id=${item.index} class="small-box" type="checkbox" >
-            <li class="item">
-            ${item.description} 
-            </li>
-            <i class="fas fa-ellipsis-v"></i>
-        </form>
-        `;
-  });
+export function display() {
+  if (localStorage.getItem('todoLists') != null) {
+    window.addEventListener('load', check);
+    const todoList = JSON.parse(localStorage.getItem('todoLists'));
+    todos.innerHTML = '';
+    todoList.forEach((item) => {
+      if (item.completed === true) {
+        todos.innerHTML += `
+        <form id="form" action="#"  >
+          <input id=${item.index} class="small-box" type="checkbox" checked>
+              <li class="item" style="text-decoration: line-through;">
+              ${item.description} 
+              </li>
+              <i class="fas fa-ellipsis-v"></i>
+          </form>
+          `;
+      } else {
+        todos.innerHTML += `
+        <form id="form" action="#" >
+          <input id=${item.index} class="small-box" type="checkbox">
+              <li class="item">
+              ${item.description} 
+              </li>
+              <i class="fas fa-ellipsis-v"></i>
+          </form>
+          `;
+      }
+    });
+  } else {
+    todos.innerHTML = '';
+    window.addEventListener('load', check);
+    todoLists.forEach((item) => {
+      if (item.completed === true) {
+        todos.innerHTML += `
+        <form id="form" action="#"  >
+          <input id=${item.index} class="small-box" type="checkbox" checked>
+              <li class="item" style="text-decoration: line-through;">
+              ${item.description} 
+              </li>
+              <i class="fas fa-ellipsis-v"></i>
+          </form>
+          `;
+      } else {
+        todos.innerHTML += `
+        <form id="form" action="#">
+          <input id=${item.index} class="small-box" type="checkbox">
+              <li class="item">
+              ${item.description} 
+              </li>
+              <i class="fas fa-ellipsis-v"></i>
+          </form>
+          `;
+      }
+    });
+    localStorage.setItem('todoLists', JSON.stringify(todoLists));
+  }
 }
-
-
-window.addEventListener('load', display);
-window.addEventListener('load', check);
-// const checkBox = document.querySelectorAll('.small-box');
-// check();
-
-
-
-export default {todoLists};
+display();
