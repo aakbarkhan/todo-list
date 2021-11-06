@@ -53,7 +53,7 @@ export function display() {
               ${item.description} 
               </li>
               <textarea class="textarea" style="display:none;" name="text" id=${item.index} cols="49" rows="1">${item.description}</textarea>
-              <button type="submit" id=${item.index}>edit</button>
+              <button class="edit-btn" type="submit" id=${item.index}>edit</button>
               <i id=${item.index} class="fas fa-ellipsis-v"></i>
           </form>
           `;
@@ -64,7 +64,6 @@ export function display() {
     window.addEventListener('load', check);
     todoLists.forEach((item) => {
       if (item.completed === true) {
-        // location.reload();
         todos.innerHTML += `
         <form id="form" action="#"  >
           <input id=${item.index} class="small-box" type="checkbox" checked>
@@ -106,24 +105,15 @@ display();
 function addLocalStorage() {
   const localStore = JSON.stringify(todoLists);
   localStorage.setItem('todoLists', localStore);
-  
-
   display();
-  // window.addEventListener('load', check);
   window.location.reload(false);
-  // location.reload();
-
-
 }
 if (localStorage.getItem('todoLists') !== null) {  
-  
   todoLists = JSON.parse(localStorage.getItem('todoLists'));
   display();
 }
 
 function remove(id) {
-  // todoLists = todoLists.filter((e) => e.index  != id);
-  // console.log(e.index );
   todoLists.splice(id,1);
   console.log(id)
   display();
@@ -132,12 +122,10 @@ function remove(id) {
 const btn = document.getElementsByClassName('fa-ellipsis-v');
 
 Array.from(btn).forEach((item, i) => {
-  // console.log(item);
   item.addEventListener('click', (e)=> {
     remove(i);
   })
 })
-
 
 function clear() {
   todoLists = todoLists.filter((item) => item.completed == false);
@@ -166,8 +154,7 @@ function edittodo(i){
     console.log(e.target);
     area[i].textContent = area[i].value;
     todoLists[i].description = area[i].textContent;
-    addLocalStorage()
-  location.reload();
+    addLocalStorage();
 
   })
 
@@ -175,14 +162,13 @@ function edittodo(i){
 
 const editbtn = document.getElementsByTagName('button');
 Array.from(editbtn).forEach((edit,i)=> {
-  
   edit.addEventListener('click', (e)=>{
-  location.reload();
+    e.preventDefault();
     editbtn[i].innerText = 'save';
     console.log(e.target.id)
     console.log(i)
     edittodo(i-1);
-  location.reload();
+
     
   })
 })
@@ -195,6 +181,6 @@ function indexLoop() {
       i += 1;
     }
   }
-  return todoLists
+  return todoLists;
 }
 indexLoop();
