@@ -41,6 +41,7 @@ export function display() {
               <li class="item" style="text-decoration: line-through;">
               ${item.description} 
               </li>
+              
               <i id=${item.id} class="fas fa-ellipsis-v"></i>
           </form>
           `;
@@ -105,6 +106,8 @@ display();
 function addLocalStorage() {
   const localStore = JSON.stringify(todoLists);
   localStorage.setItem('todoLists', localStore);
+  
+
   display();
   // window.addEventListener('load', check);
   window.location.reload(false);
@@ -113,6 +116,7 @@ function addLocalStorage() {
 
 }
 if (localStorage.getItem('todoLists') !== null) {  
+  
   todoLists = JSON.parse(localStorage.getItem('todoLists'));
   display();
 }
@@ -139,6 +143,7 @@ Array.from(btn).forEach((item, i) => {
 function clear() {
   todoLists = todoLists.filter((item) => item.completed == false);
   // console.log(todoLists);
+
   display();
   addLocalStorage();
 }
@@ -173,6 +178,7 @@ function edittodo(i){
 
 const editbtn = document.getElementsByTagName('button');
 Array.from(editbtn).forEach((edit,i)=> {
+  
   edit.addEventListener('click', (e)=>{
   location.reload();
     editbtn[i].innerText = 'save';
@@ -184,9 +190,6 @@ Array.from(editbtn).forEach((edit,i)=> {
   })
 })
 
-// so what is the problem?
-// index in the increasing order
-// todolists.length > 0
 
 function indexLoop() {
   if(todoLists.length > 0){
@@ -199,4 +202,4 @@ function indexLoop() {
   return todoLists
 }
 
-indexLoop()
+indexLoop();
