@@ -42,7 +42,7 @@ export function display() {
               ${item.description} 
               </li>
               
-              <i id=${item.id} class="fas fa-ellipsis-v"></i>
+              <i id=${item.id} class="fas fa-trash-alt"></i>
           </form>
           `;
       } else {
@@ -54,7 +54,7 @@ export function display() {
               </li>
               <textarea class="textarea" style="display:none;" name="text" id=${item.index} cols="49" rows="1">${item.description}</textarea>
               <button class="edit-btn" type="submit" id=${item.index}>edit</button>
-              <i id=${item.index} class="fas fa-ellipsis-v"></i>
+              <i id=${item.index} class=" fas fa-trash-alt"></i>
           </form>
           `;
       }
@@ -70,7 +70,7 @@ export function display() {
               <li class="item" style="text-decoration: line-through;">
               ${item.description} 
               </li>
-              <i id=${item.id}   class="fas fa-ellipsis-v"></i>
+              <i id=${item.id}  class="fas fa-trash-alt"></i>
           </form>
           `;
       } else {
@@ -80,7 +80,7 @@ export function display() {
               <li class="item">
               ${item.description} 
               </li>
-              <i id=${item.id}  class="fas fa-ellipsis-v"></i>
+              <i id=${item.id}  class="fas fa-trash-alt"></i>
           </form>
           `;
       }
@@ -92,14 +92,14 @@ display();
 
   const input = document.getElementById('input');
   const enter = document.getElementById('enter-key');
-  // console.log(enter)
+
   
     enter.addEventListener('click', ()=>{
       todoLists.push({description:input.value, completed:false,index:todoLists.length});
       display();
       console.log(input.value)
       addLocalStorage();
-      // window.addEventListener('load', check);      
+          
   })
 
 function addLocalStorage() {
@@ -119,8 +119,7 @@ function remove(id) {
   display();
   addLocalStorage();
 }
-const btn = document.getElementsByClassName('fa-ellipsis-v');
-
+const btn = document.getElementsByClassName('fa-trash-alt');
 Array.from(btn).forEach((item, i) => {
   item.addEventListener('click', (e)=> {
     remove(i);
@@ -129,7 +128,6 @@ Array.from(btn).forEach((item, i) => {
 
 function clear() {
   todoLists = todoLists.filter((item) => item.completed == false);
-  // console.log(todoLists);
   display();
   addLocalStorage();
 }
@@ -159,7 +157,6 @@ function edittodo(i){
   })
 
 }
-
 const editbtn = document.getElementsByTagName('button');
 Array.from(editbtn).forEach((edit,i)=> {
   edit.addEventListener('click', (e)=>{
@@ -168,8 +165,6 @@ Array.from(editbtn).forEach((edit,i)=> {
     console.log(e.target.id)
     console.log(i)
     edittodo(i-1);
-
-    
   })
 })
 
