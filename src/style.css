@@ -104,3 +104,7 @@ form {
 .clear {
   background-color: #f7f6f7;
 }
+
+.edit-btn {
+  margin-right: 5px;
+}
