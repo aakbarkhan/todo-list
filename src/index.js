@@ -129,7 +129,6 @@ function remove(id) {
   display();
   addLocalStorage();
 }
-
 const btn = document.getElementsByClassName('fa-ellipsis-v');
 
 Array.from(btn).forEach((item, i) => {
@@ -143,7 +142,6 @@ Array.from(btn).forEach((item, i) => {
 function clear() {
   todoLists = todoLists.filter((item) => item.completed == false);
   // console.log(todoLists);
-
   display();
   addLocalStorage();
 }
@@ -156,7 +154,6 @@ Array.from(clean).forEach((btn)=> {
     clear(); 
   });
 })
-
 
 // edit
 const area = document.getElementsByClassName('textarea');
@@ -190,7 +187,6 @@ Array.from(editbtn).forEach((edit,i)=> {
   })
 })
 
-
 function indexLoop() {
   if(todoLists.length > 0){
     let i = 0;
@@ -201,5 +197,4 @@ function indexLoop() {
   }
   return todoLists
 }
-
 indexLoop();
