@@ -1,8 +1,8 @@
 import './style.css';
+// import { filter } from 'lodash';
 import { check } from './script.js';
-import { filter } from 'lodash';
 
-export let todoLists = [
+let todoLists = [
   // {
   //   description: 'Exercise regularly.',
   //   completed: false,
@@ -25,10 +25,8 @@ export let todoLists = [
   // },
 ];
 const todos = document.querySelector('.list-items');
-
-
-export function display() {
-  const input = document.getElementById('input');
+function display() {
+  // const input = document.getElementById('input');
   if (localStorage.getItem('todoLists') != null) {
     window.addEventListener('load', check);
     const todoList = JSON.parse(localStorage.getItem('todoLists'));
@@ -59,7 +57,7 @@ export function display() {
           `;
       }
     });
-  } else if ( localStorage.getItem('todoLists') == 0) {
+  } else if (localStorage.getItem('todoLists') === 0) {
     todos.innerHTML = '';
     window.addEventListener('load', check);
     todoLists.forEach((item) => {
@@ -86,92 +84,75 @@ export function display() {
       }
     });
     localStorage.setItem('todoLists', JSON.stringify(todoLists));
-  } 
+  }
 }
 display();
 
-  const input = document.getElementById('input');
-  const enter = document.getElementById('enter-key');
-
-  
-    enter.addEventListener('click', ()=>{
-      todoLists.push({description:input.value, completed:false,index:todoLists.length});
-      display();
-      console.log(input.value)
-      addLocalStorage();
-          
-  })
-
+const input = document.getElementById('input');
+const enter = document.getElementById('enter-key');
 function addLocalStorage() {
   const localStore = JSON.stringify(todoLists);
   localStorage.setItem('todoLists', localStore);
   display();
   window.location.reload(false);
 }
-if (localStorage.getItem('todoLists') !== null) {  
+if (localStorage.getItem('todoLists') !== null) {
   todoLists = JSON.parse(localStorage.getItem('todoLists'));
   display();
 }
-
+enter.addEventListener('click', () => {
+  todoLists.push({ description: input.value, completed: false, index: todoLists.length });
+  display();
+  addLocalStorage();
+});
 function remove(id) {
-  todoLists.splice(id,1);
-  console.log(id)
+  todoLists.splice(id, 1);
   display();
   addLocalStorage();
 }
 const btn = document.getElementsByClassName('fa-trash-alt');
 Array.from(btn).forEach((item, i) => {
-  item.addEventListener('click', (e)=> {
+  item.addEventListener('click', () => {
     remove(i);
-  })
-})
+  });
+});
 
 function clear() {
-  todoLists = todoLists.filter((item) => item.completed == false);
+  todoLists = todoLists.filter((item) => item.completed === false);
   display();
   addLocalStorage();
 }
 
 const clean = document.getElementsByClassName('clear-completed');
-console.log(clean);
-
-Array.from(clean).forEach((btn)=> {
-  btn.addEventListener('click', ()=> {
-    clear(); 
+Array.from(clean).forEach((btn) => {
+  btn.addEventListener('click', () => {
+    clear();
   });
-})
-
+});
 // edit
 const area = document.getElementsByClassName('textarea');
-console.log(area)
-function edittodo(i){
+function edittodo(i) {
   area[i].style.display = 'inline';
   const line = document.querySelectorAll('.item');
   line[i].style.display = 'none';
-  area[i].addEventListener('change', (e)=> {
-    console.log(e.target);
+  area[i].addEventListener('change', () => {
     area[i].textContent = area[i].value;
     todoLists[i].description = area[i].textContent;
     addLocalStorage();
-
-  })
-
+  });
 }
 const editbtn = document.getElementsByTagName('button');
-Array.from(editbtn).forEach((edit,i)=> {
-  edit.addEventListener('click', (e)=>{
+Array.from(editbtn).forEach((edit, i) => {
+  edit.addEventListener('click', (e) => {
     e.preventDefault();
     editbtn[i].innerText = 'save';
-    console.log(e.target.id)
-    console.log(i)
-    edittodo(i-1);
-  })
-})
-
+    edittodo(i - 1);
+  });
+});
 function indexLoop() {
-  if(todoLists.length > 0){
+  if (todoLists.length > 0) {
     let i = 0;
-    while(i < todoLists.length){
+    while (i < todoLists.length) {
       todoLists[i].index = i;
       i += 1;
     }

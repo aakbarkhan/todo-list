@@ -6,17 +6,17 @@ export function check() {
     item.addEventListener('change', () => {
       if (item.checked) {
         todoLists[i].completed = true;
-        location.reload();
+        window.location.reload();
         const line = document.querySelectorAll('.item');
         line[i].style.textDecoration = 'line-through';
         localStorage.setItem('todoLists', JSON.stringify(todoLists));
       } else if (item.checked === false) {
         todoLists[i].completed = false;
-        location.reload();
+        window.location.reload();
 
         const line = document.querySelectorAll('.item');
         line[i].style.textDecoration = 'none';
-        location.reload();
+        window.location.reload();
 
         localStorage.setItem('todoLists', JSON.stringify(todoLists));
       }
