@@ -17,7 +17,7 @@
 ## Live Demo
 
 The live page is:
-[Live Link](https://aakbarkhan.github.io/Portfolio/)
+[Live Link](https://aakbarkhan.github.io/todo-list/dist/)
 
 ## Getting Started
 
